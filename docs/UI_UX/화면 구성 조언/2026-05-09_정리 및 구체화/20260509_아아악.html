@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>20260509_아아악.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<p>지금 상태에서는 <strong>화면을 더 많이 만드는 것보다 먼저 “화면이 왜 필요한지”를 정리해야 하는 단계</strong>입니다.
+무대뽀로 만들기 시작하면 화면 수는 늘어나는데, 나중에 발표할 때 “이 화면이 왜 필요한가요?”라는 질문에 답하기 어려워집니다.</p>
+<p>현재 올려주신 화면을 보면 이미 꽤 많은 요소가 있습니다.</p>
+<pre class="hljs"><code><div>로그인
+회원가입
+관심사 선택
+관심사 기반 메인
+검색
+검색 결과 / 상세
+사이드 메뉴
+프로필
+내 글 목록
+댓글 목록
+비밀번호 변경
+탈퇴 / 로그아웃 확인 모달
+</div></code></pre>
+<p>문제는 화면이 부족하다기보다, 아직 <strong>사용자 흐름 기준으로 묶이지 않아서 머릿속에 전체 앱 구조가 잘 안 보이는 상태</strong>에 가깝습니다.</p>
+<hr>
+<h1 id="1-%EB%A8%BC%EC%A0%80-%ED%99%94%EB%A9%B4%EC%9D%B4-%EC%95%84%EB%8B%88%EB%9D%BC-%EC%82%AC%EC%9A%A9%EC%9E%90-%ED%96%89%EB%8F%99%EB%B6%80%ED%84%B0-%EC%9E%A1%EA%B8%B0">1. 먼저 “화면”이 아니라 “사용자 행동”부터 잡기</h1>
+<p>Trend Leader의 핵심 사용자는 이런 사람입니다.</p>
+<blockquote>
+<p>내가 관심 있는 분야의 최신 트렌드를 빠르게 보고, 필요하면 자세히 확인하거나 저장하고 싶은 사용자</p>
+</blockquote>
+<p>그러면 앱의 핵심 행동은 5개로 정리됩니다.</p>
+<pre class="hljs"><code><div>1. 관심사 선택하기
+2. 내 관심사 기반 트렌드 보기
+3. 트렌드 상세 내용 확인하기
+4. 직접 검색하기
+5. 저장하거나 나중에 다시 보기
+</div></code></pre>
+<p>여기서부터 화면이 나와야 합니다.</p>
+<p>즉, 출발점은 이렇게 잡으면 됩니다.</p>
+<pre class="hljs"><code><div>사용자 행동 → 필요한 화면 → 필요한 UI 요소 → 데이터 저장 구조
+</div></code></pre>
+<p>반대로 하면 위험합니다.</p>
+<pre class="hljs"><code><div>화면 먼저 만들기 → 기능을 억지로 끼워넣기 → 흐름이 꼬임
+</div></code></pre>
+<hr>
+<h1 id="2-%ED%98%84%EC%9E%AC-%ED%99%94%EB%A9%B4%EC%9D%84-%EA%B8%B0%EC%A4%80%EC%9C%BC%EB%A1%9C-%EC%95%B1-%EA%B5%AC%EC%A1%B0-%EB%8B%A4%EC%8B%9C-%EB%AC%B6%EA%B8%B0">2. 현재 화면을 기준으로 앱 구조 다시 묶기</h1>
+<p>지금 만든 화면을 기능별로 다시 묶으면 이렇게 됩니다.</p>
+<pre class="hljs"><code><div>[인증 영역]
+- 로그인
+- 회원가입
+- 비밀번호 변경
+
+[초기 설정 영역]
+- 관심사 선택
+
+[트렌드 탐색 영역]
+- 메인 홈
+- 관심사별 트렌드 리스트
+- 검색 화면
+- 트렌드 상세 화면
+
+[사용자 활동 영역]
+- 저장한 트렌드
+- 내 글 목록
+- 댓글 목록
+
+[마이페이지 영역]
+- 프로필
+- 내 정보
+- 관심사 재설정
+- 로그아웃
+- 회원 탈퇴
+</div></code></pre>
+<p>여기서 현재 가장 약한 부분은 <strong>트렌드 탐색 영역</strong>입니다.
+캡스톤 기획의 핵심은 관심사 기반 트렌드 앱인데, 지금은 마이페이지/계정 관련 화면이 꽤 있고, 정작 “트렌드를 어떻게 탐색하는가” 화면이 더 확장될 필요가 있습니다.</p>
+<hr>
+<h1 id="3-%ED%99%94%EB%A9%B4-%ED%99%95%EC%9E%A5%EC%9D%80-%EC%9D%B4-%EC%88%9C%EC%84%9C%EB%A1%9C-%ED%95%98%EB%8A%94-%EA%B2%83%EC%9D%B4-%EC%A2%8B%EC%8A%B5%EB%8B%88%EB%8B%A4">3. 화면 확장은 이 순서로 하는 것이 좋습니다</h1>
+<p>화면을 많이 추가해야 할 때는 아래 순서로 확장하면 덜 막힙니다.</p>
+<pre class="hljs"><code><div>1단계: 전체 앱 지도 만들기
+2단계: 핵심 사용자 흐름 만들기
+3단계: 화면 목록 만들기
+4단계: 각 화면의 목적 한 줄 정의
+5단계: 저충실도 와이어프레임 작성
+6단계: 필요한 화면만 디자인 고도화
+</div></code></pre>
+<p>가장 먼저 해야 할 것은 Figma에서 예쁜 화면을 추가하는 게 아니라, 아래 같은 <strong>앱 지도</strong>를 만드는 것입니다.</p>
+<pre class="hljs"><code><div>앱 실행
+  ↓
+로그인 / 회원가입
+  ↓
+관심사 선택
+  ↓
+내 트렌드 홈
+  ├─ 관심사별 트렌드 리스트
+  │    └─ 트렌드 상세
+  ├─ 최신 이슈
+  │    └─ 이슈 상세
+  ├─ 검색
+  │    └─ 검색 결과
+  │          └─ 트렌드 상세
+  ├─ 저장한 트렌드
+  │    └─ 저장한 트렌드 상세
+  └─ 마이페이지
+       ├─ 프로필 수정
+       ├─ 관심사 재설정
+       ├─ 내 글 목록
+       ├─ 댓글 목록
+       ├─ 비밀번호 변경
+       └─ 로그아웃 / 회원탈퇴
+</div></code></pre>
+<p>이렇게 먼저 그리면 “내가 어떤 화면을 더 만들어야 하지?”가 훨씬 명확해집니다.</p>
+<hr>
+<h1 id="4-%EC%A7%80%EA%B8%88-%EC%B6%94%EA%B0%80%ED%95%98%EB%A9%B4-%EC%A2%8B%EC%9D%80-%ED%99%94%EB%A9%B4-%EB%AA%A9%EB%A1%9D">4. 지금 추가하면 좋은 화면 목록</h1>
+<p>현재 기획 기준으로는 아래 화면들을 추가하면 구성이 더 탄탄해집니다.</p>
+<h2 id="%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%EB%86%92%EC%9D%8C">우선순위 높음</h2>
+<pre class="hljs"><code><div>1. 내 트렌드 홈 개선 화면
+2. 카테고리별 트렌드 리스트 화면
+3. 트렌드 상세 분석 화면
+4. 최신 이슈 탭 화면
+5. 저장한 트렌드 화면
+6. 관심사 재설정 화면
+</div></code></pre>
+<h2 id="%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84-%EC%A4%91%EA%B0%84">우선순위 중간</h2>
+<pre class="hljs"><code><div>7. 알림 설정 화면
+8. 검색 결과 없음 화면
+9. 로딩 화면
+10. 서버 오류 화면
+11. 트렌드 데이터 없음 화면
+</div></code></pre>
+<h2 id="%ED%9B%84%EC%88%9C%EC%9C%84">후순위</h2>
+<pre class="hljs"><code><div>12. 커뮤니티 게시글 목록
+13. 게시글 작성
+14. 게시글 상세
+15. 댓글 작성
+</div></code></pre>
+<p>중요한 점은 <strong>정상 화면만 만들면 부족하다</strong>는 것입니다.
+앱 화면 구성에서는 정상 화면보다 아래 상태들이 더 기획력을 보여줍니다.</p>
+<pre class="hljs"><code><div>로딩 중
+데이터 없음
+검색 결과 없음
+에러 발생
+로그인 필요
+관심사 미선택
+</div></code></pre>
+<p>발표에서 이런 화면까지 보여주면 “실제 앱 흐름을 고려했다”는 인상을 줄 수 있습니다.</p>
+<hr>
+<h1 id="5-%EC%B6%94%EC%B2%9C-%ED%95%98%EB%8B%A8-%ED%83%AD-%EA%B5%AC%EC%A1%B0">5. 추천 하단 탭 구조</h1>
+<p>현재 하단 아이콘이 조금 추상적으로 보입니다. 발표용이라면 탭 이름이 명확한 편이 좋습니다.</p>
+<p>추천 구조는 이겁니다.</p>
+<pre class="hljs"><code><div>[내 트렌드] [최신 이슈] [검색] [저장] [마이]
+</div></code></pre>
+<p>다만 모바일 화면에서 5개 탭은 조금 많을 수 있습니다. 그래서 MVP 기준으로는 4개가 더 안정적입니다.</p>
+<pre class="hljs"><code><div>[내 트렌드] [최신 이슈] [저장] [마이]
+</div></code></pre>
+<p>검색은 상단 검색창으로 넣으면 됩니다.</p>
+<pre class="hljs"><code><div>┌────────────────────┐
+│ 🔍 트렌드 검색하기   │
+└────────────────────┘
+</div></code></pre>
+<hr>
+<h1 id="6-%ED%95%B5%EC%8B%AC-%ED%99%94%EB%A9%B4-%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84">6. 핵심 화면 와이어프레임</h1>
+<h2 id="6-1-%EB%82%B4-%ED%8A%B8%EB%A0%8C%EB%93%9C-%ED%99%88">6-1. 내 트렌드 홈</h2>
+<p>현재 메인 화면은 방향이 좋습니다. 다만 “오늘의 추천”, “카테고리”, “트렌드 리스트”가 더 명확히 나뉘면 좋습니다.</p>
+<pre class="hljs"><code><div>┌────────────────────────────┐
+│ ⋮        TL             🔔 │
+├────────────────────────────┤
+│ 오늘님을 위한              │
+│ 오늘의 맞춤 트렌드          │
+│ 관심 분야 기반 추천         │
+│                            │
+│ 🔍 관심 키워드 검색          │
+│                            │
+│ 관심 카테고리               │
+│ [패션] [IT/지식] [엔터]     │
+│                            │
+│ 🔥 오늘의 추천 트렌드        │
+│ ┌────────────────────────┐ │
+│ │ 1. 내 관심사 급상승     │ │
+│ │ 음식 · 오늘 상승        │ │
+│ │ AI 요약 한 줄           │ │
+│ │ #관련키워드 #SNS        │ │
+│ └────────────────────────┘ │
+│ ┌────────────────────────┐ │
+│ │ 2. 관련 이슈 키워드     │ │
+│ │ 게임 · 검색량 증가      │ │
+│ │ AI 요약 한 줄           │ │
+│ └────────────────────────┘ │
+│                            │
+├────────────────────────────┤
+│ 내트렌드  최신  저장  마이 │
+└────────────────────────────┘
+</div></code></pre>
+<p>이 화면의 목적은 하나입니다.</p>
+<pre class="hljs"><code><div>사용자가 앱에 들어오자마자 자신의 관심사 기반 트렌드를 빠르게 확인한다.
+</div></code></pre>
+<hr>
+<h2 id="6-2-%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%EB%B3%84-%ED%8A%B8%EB%A0%8C%EB%93%9C-%EB%A6%AC%EC%8A%A4%ED%8A%B8">6-2. 카테고리별 트렌드 리스트</h2>
+<p>관심사 탭을 눌렀을 때 나오는 화면입니다.</p>
+<pre class="hljs"><code><div>┌────────────────────────────┐
+│ ⋮        내 트렌드       🔍 │
+├────────────────────────────┤
+│ 관심 분야별 트렌드          │
+│                            │
+│ [전체] [패션] [음식] [게임] │
+│ [뷰티] [IT/지식] [엔터]     │
+│                            │
+│ 기간  [오늘 ▼]             │
+│ 정렬  [인기순 ▼]           │
+│                            │
+│ ┌────────────────────────┐ │
+│ │ 1  저속노화 식단     ☆ │ │
+│ │ 음식 · 상승률 +32%      │ │
+│ │ 왜 뜨는지 보기 &gt;        │ │
+│ └────────────────────────┘ │
+│ ┌────────────────────────┐ │
+│ │ 2  신작 게임 이벤트  ☆ │ │
+│ │ 게임 · 커뮤니티 언급 증가│ │
+│ │ 왜 뜨는지 보기 &gt;        │ │
+│ └────────────────────────┘ │
+│                            │
+├────────────────────────────┤
+│ 내트렌드  최신  저장  마이 │
+└────────────────────────────┘
+</div></code></pre>
+<p>여기서 중요한 필터는 3개입니다.</p>
+<pre class="hljs"><code><div>카테고리
+기간
+정렬
+</div></code></pre>
+<p>이 3개만 있어도 기획이 꽤 구체적으로 보입니다.</p>
+<hr>
+<h2 id="6-3-%ED%8A%B8%EB%A0%8C%EB%93%9C-%EC%83%81%EC%84%B8-%EB%B6%84%EC%84%9D-%ED%99%94%EB%A9%B4">6-3. 트렌드 상세 분석 화면</h2>
+<p>이 화면이 앱의 차별화 포인트가 되어야 합니다.
+단순 키워드 설명이 아니라 “왜 뜨는지”를 보여줘야 합니다.</p>
+<pre class="hljs"><code><div>┌────────────────────────────┐
+│ &lt;       트렌드 상세      ☆ │
+├────────────────────────────┤
+│ 저속노화 식단               │
+│ 음식 · 오늘 인기 상승        │
+│                            │
+│ ┌────────────────────────┐ │
+│ │ AI 한 줄 요약           │ │
+│ │ 건강 관리와 식단 콘텐츠가│ │
+│ │ SNS에서 확산되며 주목 중 │ │
+│ └────────────────────────┘ │
+│                            │
+│ 관련 키워드                 │
+│ [건강식] [다이어트] [식단]  │
+│                            │
+│ 왜 주목받고 있나요?         │
+│ ┌────────────────────────┐ │
+│ │ 1. SNS 콘텐츠 증가       │ │
+│ │ 2. 건강 관심도 상승      │ │
+│ │ 3. 관련 검색어 증가      │ │
+│ └────────────────────────┘ │
+│                            │
+│ 관련 트렌드                 │
+│ - 단백질 간식               │
+│ - 샐러드 도시락             │
+│ - 혈당 관리 식단            │
+│                            │
+│ [저장하기]                  │
+└────────────────────────────┘
+</div></code></pre>
+<p>트렌드 상세 화면은 발표에서 이렇게 설명하면 좋습니다.</p>
+<pre class="hljs"><code><div>사용자는 단순히 키워드 순위만 보는 것이 아니라,
+AI 요약과 관련 키워드를 통해 해당 트렌드가 왜 주목받는지 이해할 수 있다.
+</div></code></pre>
+<hr>
+<h2 id="6-4-%EC%B5%9C%EC%8B%A0-%EC%9D%B4%EC%8A%88-%ED%83%AD">6-4. 최신 이슈 탭</h2>
+<p>이 화면은 “개인화”가 아니라 “전체 흐름”입니다.
+내 트렌드와 역할이 겹치지 않게 해야 합니다.</p>
+<pre class="hljs"><code><div>┌────────────────────────────┐
+│ ⋮       최신 이슈        🔍 │
+├────────────────────────────┤
+│ 전체 사용자가 주목한 이슈    │
+│                            │
+│ [오늘] [어제] [주간]        │
+│                            │
+│ 🔥 실시간 인기 이슈          │
+│ ┌────────────────────────┐ │
+│ │ 1. 대형 페스티벌         │ │
+│ │ 엔터 · 전체 인기 상승     │ │
+│ └────────────────────────┘ │
+│ ┌────────────────────────┐ │
+│ │ 2. 신작 게임 공개        │ │
+│ │ 게임 · 검색량 증가        │ │
+│ └────────────────────────┘ │
+│                            │
+│ 카테고리별 이슈             │
+│ ┌────────────────────────┐ │
+│ │ 패션                    │ │
+│ │ #여름코디 #샌들 #린넨    │ │
+│ └────────────────────────┘ │
+│ ┌────────────────────────┐ │
+│ │ 음식                    │ │
+│ │ #저속노화 #디저트 #신메뉴│ │
+│ └────────────────────────┘ │
+│                            │
+├────────────────────────────┤
+│ 내트렌드  최신  저장  마이 │
+└────────────────────────────┘
+</div></code></pre>
+<p>핵심 차이는 이렇게 잡으면 됩니다.</p>
+<pre class="hljs"><code><div>내 트렌드: 내가 선택한 관심사 기준
+최신 이슈: 전체 사용자 / 전체 플랫폼 기준
+</div></code></pre>
+<hr>
+<h2 id="6-5-%EC%A0%80%EC%9E%A5%ED%95%9C-%ED%8A%B8%EB%A0%8C%EB%93%9C-%ED%99%94%EB%A9%B4">6-5. 저장한 트렌드 화면</h2>
+<p>저장 화면은 앱의 재방문 이유를 만들어줍니다.</p>
+<pre class="hljs"><code><div>┌────────────────────────────┐
+│ ⋮      저장한 트렌드        │
+├────────────────────────────┤
+│ 나중에 다시 볼 트렌드        │
+│                            │
+│ [전체] [패션] [음식] [게임] │
+│                            │
+│ ┌────────────────────────┐ │
+│ │ ☆ 저속노화 식단          │ │
+│ │ 음식 · 2026.05.03 저장   │ │
+│ │ AI 요약 다시 보기 &gt;      │ │
+│ └────────────────────────┘ │
+│ ┌────────────────────────┐ │
+│ │ ☆ 신작 게임 이벤트       │ │
+│ │ 게임 · 2026.05.02 저장   │ │
+│ │ AI 요약 다시 보기 &gt;      │ │
+│ └────────────────────────┘ │
+│                            │
+│ 저장한 트렌드가 없습니다    │
+│ 관심 있는 트렌드를 저장해보세요│
+│                            │
+├────────────────────────────┤
+│ 내트렌드  최신  저장  마이 │
+└────────────────────────────┘
+</div></code></pre>
+<p>여기서는 “저장 목록 있음” 화면과 “저장 목록 없음” 화면을 둘 다 만들어두면 좋습니다.</p>
+<hr>
+<h2 id="6-6-%EA%B4%80%EC%8B%AC%EC%82%AC-%EC%9E%AC%EC%84%A4%EC%A0%95-%ED%99%94%EB%A9%B4">6-6. 관심사 재설정 화면</h2>
+<p>처음 관심사 선택 화면과 거의 같게 만들되, 목적을 다르게 잡으면 됩니다.</p>
+<pre class="hljs"><code><div>┌────────────────────────────┐
+│ &lt;      관심사 재설정        │
+├────────────────────────────┤
+│ 관심 분야를 다시 선택하세요 │
+│ 선택한 분야 기준으로        │
+│ 추천 트렌드가 변경됩니다.   │
+│                            │
+│ [✓ 패션] [✓ 음식] [게임]   │
+│ [뷰티] [IT/지식] [✓ 엔터]  │
+│ [운동] [여행] [음악]       │
+│                            │
+│ 현재 선택: 3개              │
+│                            │
+│ [변경 완료]                 │
+└────────────────────────────┘
+</div></code></pre>
+<p>이 화면은 마이페이지에서 연결하면 됩니다.</p>
+<hr>
+<h1 id="7-%ED%99%94%EB%A9%B4%EC%9D%84-%EB%8D%94-%EB%A7%8C%EB%93%A4-%EB%95%8C-%EC%93%B0%EB%8A%94-%EC%B2%B4%ED%81%AC%EB%A6%AC%EC%8A%A4%ED%8A%B8">7. 화면을 더 만들 때 쓰는 체크리스트</h1>
+<p>앞으로 새 화면을 만들 때마다 아래 5개를 먼저 적고 시작하세요.</p>
+<pre class="hljs"><code><div>1. 이 화면의 목적은 무엇인가?
+2. 사용자가 이 화면에서 누를 수 있는 것은 무엇인가?
+3. 이전 화면은 무엇인가?
+4. 다음 화면은 무엇인가?
+5. 데이터가 없거나 오류가 나면 어떻게 보여줄 것인가?
+</div></code></pre>
+<p>예를 들어 트렌드 상세 화면이면 이렇게 됩니다.</p>
+<pre class="hljs"><code><div>화면명: 트렌드 상세 화면
+
+목적:
+사용자가 특정 트렌드의 의미, 상승 이유, 관련 키워드를 확인한다.
+
+이전 화면:
+내 트렌드 홈, 최신 이슈 탭, 검색 결과 화면
+
+주요 동작:
+저장하기
+관련 키워드 누르기
+뒤로가기
+
+다음 화면:
+저장한 트렌드 화면
+관련 키워드 검색 결과 화면
+
+예외 상태:
+AI 요약 생성 실패
+관련 키워드 없음
+트렌드 데이터 삭제됨
+</div></code></pre>
+<p>이렇게 적고 나서 Figma를 그리면 훨씬 덜 막힙니다.</p>
+<hr>
+<h1 id="8-%EC%A7%80%EA%B8%88-%EB%8B%B9%EC%9E%A5-%ED%95%98%EB%A9%B4-%EC%A2%8B%EC%9D%80-%EC%9E%91%EC%97%85-%EC%88%9C%EC%84%9C">8. 지금 당장 하면 좋은 작업 순서</h1>
+<p>현재 상황에서는 이렇게 진행하는 걸 추천합니다.</p>
+<pre class="hljs"><code><div>1. Figma에서 새 페이지 생성: &quot;IA / Flow&quot;
+2. 앱 전체 흐름도를 네모 박스로 먼저 그림
+3. 화면을 4개 그룹으로 나눔
+   - 인증
+   - 온보딩
+   - 트렌드 탐색
+   - 마이페이지
+4. 각 그룹마다 필요한 화면 목록 작성
+5. 핵심 화면 6개만 저충실도 와이어프레임으로 복제
+6. 이후 색상/아이콘/카드 디자인 적용
+</div></code></pre>
+<p>Figma에서는 처음부터 예쁜 화면을 만들지 말고, 아래처럼 회색 박스로만 먼저 잡아도 됩니다.</p>
+<pre class="hljs"><code><div>Header
+Search
+Category Chips
+Trend Card List
+Bottom Navigation
+</div></code></pre>
+<p>즉, 지금은 디자인 단계라기보다 <strong>화면 설계 단계</strong>입니다.</p>
+<hr>
+<h1 id="9-%ED%98%84%EC%9E%AC-%ED%99%94%EB%A9%B4%EC%97%90%EC%84%9C-%EB%B0%94%EB%A1%9C-%EB%B3%B4%EC%99%84%ED%95%98%EB%A9%B4-%EC%A2%8B%EC%9D%80-%EC%A0%90">9. 현재 화면에서 바로 보완하면 좋은 점</h1>
+<p>지금 만든 화면을 기준으로 보면 보완 방향은 이렇습니다.</p>
+<pre class="hljs"><code><div>1. 하단 탭 아이콘에 텍스트 라벨 추가
+2. 메인 화면의 목적을 “내 트렌드 홈”으로 명확히 변경
+3. 검색 화면과 트렌드 리스트 화면의 역할 분리
+4. 트렌드 상세 화면에 AI 요약 / 상승 이유 / 관련 키워드 추가
+5. 저장한 트렌드 화면 추가
+6. 최신 이슈 탭 화면 추가
+7. 관심사 재설정 화면 추가
+8. 데이터 없음 / 검색 결과 없음 / 오류 화면 추가
+</div></code></pre>
+<p>특히 하단 탭은 아이콘만 있으면 발표 때 설명이 필요해집니다.
+아래처럼 라벨을 붙이는 편이 좋습니다.</p>
+<pre class="hljs"><code><div>🔥 내트렌드
+▣ 최신
+🔍 검색
+☆ 저장
+👤 마이
+</div></code></pre>
+<p>또는 4개 탭이면:</p>
+<pre class="hljs"><code><div>🔥 내트렌드
+▣ 최신이슈
+☆ 저장
+👤 마이
+</div></code></pre>
+<hr>
+<h1 id="10-%ED%95%B5%EC%8B%AC-%EC%A0%95%EB%A6%AC">10. 핵심 정리</h1>
+<p>지금은 화면을 무작정 늘릴 단계가 아니라, <strong>앱의 흐름을 먼저 고정해야 하는 단계</strong>입니다.</p>
+<p>가장 추천하는 출발 방식은 이것입니다.</p>
+<pre class="hljs"><code><div>사용자 행동 5개 정의
+→ 필요한 화면 목록 작성
+→ 화면별 목적 한 줄 작성
+→ 정상/빈 상태/오류 상태 구분
+→ 저충실도 와이어프레임 제작
+→ 디자인 적용
+</div></code></pre>
+<p>현재 Trend Leader 기준으로 가장 먼저 추가하면 좋은 화면은 아래 6개입니다.</p>
+<pre class="hljs"><code><div>1. 내 트렌드 홈 개선
+2. 카테고리별 트렌드 리스트
+3. 트렌드 상세 분석
+4. 최신 이슈 탭
+5. 저장한 트렌드
+6. 관심사 재설정
+</div></code></pre>
+<p>이렇게 출발하면 “화면을 더 만들어야 한다”는 막막함이
+**“사용자 흐름에 필요한 화면을 하나씩 채운다”**는 작업으로 바뀝니다.</p>
+
+</body>
+</html>
