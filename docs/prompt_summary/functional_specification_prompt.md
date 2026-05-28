@@ -5,7 +5,7 @@
 - Frontend: React Native
 - Backend: Python FastAPI
 - Database: MySQL 또는 MariaDB
-- 주제: 관심사 기반 트렌드 추천 앱
+- 주제: 관심사 기반 트렌드 추천 앱(Trend Leader)
 
 출력 형식:
 
