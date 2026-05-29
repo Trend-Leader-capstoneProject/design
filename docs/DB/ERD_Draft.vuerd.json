@@ -4,8 +4,8 @@
   "settings": {
     "width": 3300,
     "height": 3300,
-    "scrollTop": -1325.0812,
-    "scrollLeft": 0,
+    "scrollTop": -1006.0812,
+    "scrollLeft": -176,
     "zoomLevel": 1,
     "show": 511,
     "database": 4,
@@ -41,7 +41,8 @@
       "9l1fI2-v9RDlL6ac8z9fN",
       "Pq0b1CobSif5qLwFVp5pO",
       "2cC3EOWW8oBZbyTfU_VzF",
-      "3UJgA-yE-oGL5SaPEgsJY"
+      "3UJgA-yE-oGL5SaPEgsJY",
+      "cxspZf8ZROicSG912yv6t"
     ],
     "relationshipIds": [
       "UIvt_49GaRaOmGo0fU0P7",
@@ -53,7 +54,8 @@
       "vOWgf8TPL854ZpYjA7b9a",
       "9krxN2yeJHbI3s1k1tsef",
       "pKBO-V0KjT5rcgRQafGqa",
-      "s_cZL77BpuI-MUtTBRpB8"
+      "s_cZL77BpuI-MUtTBRpB8",
+      "SyD5q4v4pNF8Dc0bj3EXc"
     ],
     "indexIds": [],
     "memoIds": []
@@ -341,15 +343,15 @@
           "t9LIGCXg4vf2ht-A816OX"
         ],
         "ui": {
-          "x": 1417.6625,
-          "y": 1401.9196,
+          "x": 1410.6625,
+          "y": 1613.9196,
           "zIndex": 465,
           "widthName": 60,
           "widthComment": 65,
           "color": "#2196F3"
         },
         "meta": {
-          "updateAt": 1780013888292,
+          "updateAt": 1780045895595,
           "createAt": 1779963031170
         }
       },
@@ -468,6 +470,41 @@
         "meta": {
           "updateAt": 1780013905448,
           "createAt": 1780013315198
+        }
+      },
+      "cxspZf8ZROicSG912yv6t": {
+        "id": "cxspZf8ZROicSG912yv6t",
+        "name": "trend_ai_analyses",
+        "comment": "트렌드 AI 분석",
+        "columnIds": [
+          "aBBPv-GEfEYTCGGYxbceY",
+          "kuh7qA5kECw2DNGTpSYYr",
+          "QNZPZc9Z4u6h0Y3POU9w7",
+          "BotfBUJK5qXvVhDyCpFB-",
+          "LbxZ6i_TTKI8P2DZ1SJVh",
+          "-cWnQctp1o1gdjTDIeYbf",
+          "2hS07zgh2UqaL89A3RhJx"
+        ],
+        "seqColumnIds": [
+          "aBBPv-GEfEYTCGGYxbceY",
+          "kuh7qA5kECw2DNGTpSYYr",
+          "QNZPZc9Z4u6h0Y3POU9w7",
+          "BotfBUJK5qXvVhDyCpFB-",
+          "LbxZ6i_TTKI8P2DZ1SJVh",
+          "-cWnQctp1o1gdjTDIeYbf",
+          "2hS07zgh2UqaL89A3RhJx"
+        ],
+        "ui": {
+          "x": 668,
+          "y": 1989.0812,
+          "zIndex": 531,
+          "widthName": 94,
+          "widthComment": 80,
+          "color": "#2196F3"
+        },
+        "meta": {
+          "updateAt": 1780045928744,
+          "createAt": 1780045620970
         }
       }
     },
@@ -1751,6 +1788,146 @@
           "updateAt": 1780013894705,
           "createAt": 1780013888785
         }
+      },
+      "aBBPv-GEfEYTCGGYxbceY": {
+        "id": "aBBPv-GEfEYTCGGYxbceY",
+        "tableId": "cxspZf8ZROicSG912yv6t",
+        "name": "analysis_id",
+        "comment": "AI 분석 ID",
+        "dataType": "BIGINT",
+        "default": "1",
+        "options": 11,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1780045746943,
+          "createAt": 1780045698256
+        }
+      },
+      "kuh7qA5kECw2DNGTpSYYr": {
+        "id": "kuh7qA5kECw2DNGTpSYYr",
+        "tableId": "cxspZf8ZROicSG912yv6t",
+        "name": "one_line_summary",
+        "comment": "AI 한줄 요약",
+        "dataType": "TEXT",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 100,
+          "widthComment": 68,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1780045787811,
+          "createAt": 1780045749096
+        }
+      },
+      "QNZPZc9Z4u6h0Y3POU9w7": {
+        "id": "QNZPZc9Z4u6h0Y3POU9w7",
+        "tableId": "cxspZf8ZROicSG912yv6t",
+        "name": "reason_text",
+        "comment": "유행 이유 설명",
+        "dataType": "TEXT",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 62,
+          "widthComment": 81,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1780045810508,
+          "createAt": 1780045789529
+        }
+      },
+      "BotfBUJK5qXvVhDyCpFB-": {
+        "id": "BotfBUJK5qXvVhDyCpFB-",
+        "tableId": "cxspZf8ZROicSG912yv6t",
+        "name": "detail_text",
+        "comment": "상세 설명",
+        "dataType": "LONGTEXT",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1780045829558,
+          "createAt": 1780045811222
+        }
+      },
+      "LbxZ6i_TTKI8P2DZ1SJVh": {
+        "id": "LbxZ6i_TTKI8P2DZ1SJVh",
+        "tableId": "cxspZf8ZROicSG912yv6t",
+        "name": "model_name",
+        "comment": "사용 AI 모델명",
+        "dataType": "ENUM",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 70,
+          "widthComment": 80,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1780045852288,
+          "createAt": 1780045830308
+        }
+      },
+      "-cWnQctp1o1gdjTDIeYbf": {
+        "id": "-cWnQctp1o1gdjTDIeYbf",
+        "tableId": "cxspZf8ZROicSG912yv6t",
+        "name": "created_at",
+        "comment": "분석 생성일",
+        "dataType": "DATETIME",
+        "default": "CURRENT_TIMESTAMP",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 65,
+          "widthDataType": 60,
+          "widthDefault": 122
+        },
+        "meta": {
+          "updateAt": 1780045886078,
+          "createAt": 1780045857548
+        }
+      },
+      "2hS07zgh2UqaL89A3RhJx": {
+        "id": "2hS07zgh2UqaL89A3RhJx",
+        "tableId": "cxspZf8ZROicSG912yv6t",
+        "name": "trend_id",
+        "comment": "트렌드 정보 ID",
+        "dataType": "BIGINT",
+        "default": "1",
+        "options": 8,
+        "ui": {
+          "keys": 2,
+          "widthName": 60,
+          "widthComment": 80,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1780045928277,
+          "createAt": 1780045928277
+        }
       }
     },
     "relationshipEntities": {
@@ -1960,8 +2137,8 @@
           "columnIds": [
             "WFeOFxPpLu4LWbj7yLWWl"
           ],
-          "x": 1749.1625,
-          "y": 1401.9196,
+          "x": 1742.1625,
+          "y": 1613.9196,
           "direction": 4
         },
         "end": {
@@ -1988,8 +2165,8 @@
           "columnIds": [
             "WFeOFxPpLu4LWbj7yLWWl"
           ],
-          "x": 1417.6625,
-          "y": 1457.9196,
+          "x": 1410.6625,
+          "y": 1651.2529333333334,
           "direction": 1
         },
         "end": {
@@ -2016,8 +2193,8 @@
           "columnIds": [
             "WFeOFxPpLu4LWbj7yLWWl"
           ],
-          "x": 1417.6625,
-          "y": 1569.9196,
+          "x": 1410.6625,
+          "y": 1725.9196000000002,
           "direction": 1
         },
         "end": {
@@ -2032,6 +2209,34 @@
         "meta": {
           "updateAt": 1780013888786,
           "createAt": 1780013888786
+        }
+      },
+      "SyD5q4v4pNF8Dc0bj3EXc": {
+        "id": "SyD5q4v4pNF8Dc0bj3EXc",
+        "identification": false,
+        "relationshipType": 8,
+        "startRelationshipType": 2,
+        "start": {
+          "tableId": "9l1fI2-v9RDlL6ac8z9fN",
+          "columnIds": [
+            "WFeOFxPpLu4LWbj7yLWWl"
+          ],
+          "x": 1410.6625,
+          "y": 1800.586266666667,
+          "direction": 1
+        },
+        "end": {
+          "tableId": "cxspZf8ZROicSG912yv6t",
+          "columnIds": [
+            "2hS07zgh2UqaL89A3RhJx"
+          ],
+          "x": 1209,
+          "y": 2101.0812,
+          "direction": 2
+        },
+        "meta": {
+          "updateAt": 1780045928277,
+          "createAt": 1780045928277
         }
       }
     },
