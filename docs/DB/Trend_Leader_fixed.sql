@@ -5,6 +5,10 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
+CREATE DATABASE trend_leader;
+
+USE trend_leader;
+
 CREATE TABLE categories
 (
   category_id   BIGINT       NOT NULL AUTO_INCREMENT COMMENT '카테고리 ID 일련번호',
