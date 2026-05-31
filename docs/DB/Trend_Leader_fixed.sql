@@ -121,7 +121,7 @@ CREATE TABLE users
   login_id      VARCHAR(50)                              NOT NULL COMMENT '로그인 ID',
   password_hash VARCHAR(255)                             NOT NULL COMMENT '비밀번호 해시값',
   name          VARCHAR(50)                              NOT NULL COMMENT '사용자 이름',
-  email         VARCHAR(255)                             NOT NULL COMMENT '이메일 & OAuth 연동',
+  email         VARCHAR(255)                             NULL COMMENT '이메일 & OAuth 연동',
   status        ENUM('ACTIVE', 'WITHDRAWN', 'SUSPENDED') NOT NULL DEFAULT 'ACTIVE' COMMENT '계정 상태',
   created_at    DATETIME                                 NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '가입일',
   updated_at    DATETIME                                 NULL     COMMENT '수정일',
