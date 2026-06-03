@@ -5,9 +5,7 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
-CREATE DATABASE IF NOT EXISTS trend_leader
-  DEFAULT CHARACTER SET utf8mb4
-  DEFAULT COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE trend_leader;
 
 USE trend_leader;
 
@@ -117,40 +115,11 @@ CREATE TABLE trends
   INDEX IDX_trends_status (status)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='트렌드 정보';
 
-CREATE TABLE trend_related_keywords
-(
-  related_keyword_id BIGINT NOT NULL AUTO_INCREMENT COMMENT '관련 키워드 ID',
-  trend_id           BIGINT NOT NULL COMMENT '트렌드 정보 ID',
-  keyword            VARCHAR(100) NOT NULL COMMENT '관련 키워드명',
-  relation_type      ENUM('RELATED', 'HASHTAG', 'RECOMMENDED') NOT NULL DEFAULT 'RELATED' COMMENT '관련 키워드 유형',
-  sort_order         INT NOT NULL DEFAULT 0 COMMENT '화면 표시 순서',
-  created_at         DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '등록일',
-
-  PRIMARY KEY (related_keyword_id),
-
-  UNIQUE KEY UK_trend_related_keywords_trend_keyword_type 
-    (trend_id, keyword, relation_type),
-
-  INDEX IDX_trend_related_keywords_trend_id (trend_id),
-  INDEX IDX_trend_related_keywords_keyword (keyword),
-  INDEX IDX_trend_related_keywords_relation_type (relation_type),
-
-  CONSTRAINT FK_trends_TO_trend_related_keywords
-    FOREIGN KEY (trend_id)
-    REFERENCES trends (trend_id)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE
-) ENGINE=InnoDB 
-  DEFAULT CHARSET=utf8mb4 
-  COLLATE=utf8mb4_unicode_ci 
-  COMMENT='트렌드 관련 키워드';
-
-
 CREATE TABLE users
 (
   user_id       BIGINT                                   NOT NULL AUTO_INCREMENT COMMENT '사용자 ID 일련번호',
   login_id      VARCHAR(50)                              NOT NULL COMMENT '로그인 ID',
-  password_hash VARCHAR(255)                             NULL COMMENT '비밀번호 해시값',
+  password_hash VARCHAR(255)                             NOT NULL COMMENT '비밀번호 해시값',
   name          VARCHAR(50)                              NOT NULL COMMENT '사용자 이름',
   email         VARCHAR(255)                             NULL COMMENT '이메일 & OAuth 연동',
   status        ENUM('ACTIVE', 'WITHDRAWN', 'SUSPENDED') NOT NULL DEFAULT 'ACTIVE' COMMENT '계정 상태',

@@ -4,9 +4,9 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -907.589,
-    "scrollLeft": -164.3463,
-    "zoomLevel": 0.73,
+    "scrollTop": -893.7158,
+    "scrollLeft": -445.8231,
+    "zoomLevel": 0.49,
     "show": 511,
     "database": 4,
     "databaseName": "Trend Leader",
@@ -43,7 +43,8 @@
       "3UJgA-yE-oGL5SaPEgsJY",
       "cxspZf8ZROicSG912yv6t",
       "IyMwwcaUIAqL42RIXlmGV",
-      "TYFUOcIk75MlPdVKXdfNy"
+      "TYFUOcIk75MlPdVKXdfNy",
+      "d8kbx4BZFNQQl92R2vY8s"
     ],
     "relationshipIds": [
       "UIvt_49GaRaOmGo0fU0P7",
@@ -59,7 +60,8 @@
       "SyD5q4v4pNF8Dc0bj3EXc",
       "K06UaZlhCV-xICuk4-oQF",
       "u7CwAutKWzI3sFbi7-Yre",
-      "b9gwPSyr-RVNE6m17Otft"
+      "b9gwPSyr-RVNE6m17Otft",
+      "GjH6KJwC3uRW9ZB7FqJMt"
     ],
     "indexIds": [],
     "memoIds": []
@@ -594,6 +596,37 @@
           "updateAt": 1780191425398,
           "createAt": 1780129731850
         }
+      },
+      "d8kbx4BZFNQQl92R2vY8s": {
+        "id": "d8kbx4BZFNQQl92R2vY8s",
+        "name": "trend_related_keywords",
+        "comment": "관련 키워드",
+        "columnIds": [
+          "sSJah1xZOy0to3yjgz91s",
+          "bLRRWUWDprRG8-qzkorVL",
+          "v-rE7Lu4OdyYzXXyXfmmJ",
+          "2WCN0EWqBmD40WcFqAv3F",
+          "GH8t97WzKT14Zp7G2gauY"
+        ],
+        "seqColumnIds": [
+          "sSJah1xZOy0to3yjgz91s",
+          "bLRRWUWDprRG8-qzkorVL",
+          "v-rE7Lu4OdyYzXXyXfmmJ",
+          "2WCN0EWqBmD40WcFqAv3F",
+          "GH8t97WzKT14Zp7G2gauY"
+        ],
+        "ui": {
+          "x": 793.4065,
+          "y": 1468.1073,
+          "zIndex": 576,
+          "widthName": 127,
+          "widthComment": 65,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1780286408197,
+          "createAt": 1780286283259
+        }
       }
     },
     "tableColumnEntities": {
@@ -684,7 +717,7 @@
         "comment": "이메일 & OAuth 연동",
         "dataType": "VARCHAR",
         "default": "",
-        "options": 8,
+        "options": 0,
         "ui": {
           "keys": 0,
           "widthName": 60,
@@ -693,7 +726,7 @@
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1779931481627,
+          "updateAt": 1780273627822,
           "createAt": 1779931439759
         }
       },
@@ -2256,6 +2289,106 @@
           "updateAt": 1780192091721,
           "createAt": 1780129990596
         }
+      },
+      "sSJah1xZOy0to3yjgz91s": {
+        "id": "sSJah1xZOy0to3yjgz91s",
+        "tableId": "d8kbx4BZFNQQl92R2vY8s",
+        "name": "related_keyword_id",
+        "comment": "관련 키워드 ID",
+        "dataType": "BIGINT",
+        "default": "",
+        "options": 11,
+        "ui": {
+          "keys": 1,
+          "widthName": 104,
+          "widthComment": 80,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1780286337983,
+          "createAt": 1780286307145
+        }
+      },
+      "bLRRWUWDprRG8-qzkorVL": {
+        "id": "bLRRWUWDprRG8-qzkorVL",
+        "tableId": "d8kbx4BZFNQQl92R2vY8s",
+        "name": "keyword",
+        "comment": "키워드 이름",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 65,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1780286351837,
+          "createAt": 1780286307410
+        }
+      },
+      "v-rE7Lu4OdyYzXXyXfmmJ": {
+        "id": "v-rE7Lu4OdyYzXXyXfmmJ",
+        "tableId": "d8kbx4BZFNQQl92R2vY8s",
+        "name": "relation_type",
+        "comment": "관련 요소 타입",
+        "dataType": "ENUM('RELATED', 'HASHTAG', 'RECOMMENDED')",
+        "default": "RELATED",
+        "options": 13,
+        "ui": {
+          "keys": 0,
+          "widthName": 70,
+          "widthComment": 81,
+          "widthDataType": 260,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1780286376854,
+          "createAt": 1780286309132
+        }
+      },
+      "2WCN0EWqBmD40WcFqAv3F": {
+        "id": "2WCN0EWqBmD40WcFqAv3F",
+        "tableId": "d8kbx4BZFNQQl92R2vY8s",
+        "name": "sort_order",
+        "comment": "표시 순서",
+        "dataType": "INT",
+        "default": "",
+        "options": 5,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1780286384985,
+          "createAt": 1780286310940
+        }
+      },
+      "GH8t97WzKT14Zp7G2gauY": {
+        "id": "GH8t97WzKT14Zp7G2gauY",
+        "tableId": "d8kbx4BZFNQQl92R2vY8s",
+        "name": "trend_id",
+        "comment": "트렌드 정보 ID",
+        "dataType": "BIGINT",
+        "default": "1",
+        "options": 8,
+        "ui": {
+          "keys": 2,
+          "widthName": 60,
+          "widthComment": 80,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1780286404244,
+          "createAt": 1780286404244
+        }
       }
     },
     "relationshipEntities": {
@@ -2649,6 +2782,34 @@
         "meta": {
           "updateAt": 1780129990597,
           "createAt": 1780129990597
+        }
+      },
+      "GjH6KJwC3uRW9ZB7FqJMt": {
+        "id": "GjH6KJwC3uRW9ZB7FqJMt",
+        "identification": false,
+        "relationshipType": 16,
+        "startRelationshipType": 2,
+        "start": {
+          "tableId": "9l1fI2-v9RDlL6ac8z9fN",
+          "columnIds": [
+            "WFeOFxPpLu4LWbj7yLWWl"
+          ],
+          "x": 1126.2418,
+          "y": 1453.3455,
+          "direction": 8
+        },
+        "end": {
+          "tableId": "d8kbx4BZFNQQl92R2vY8s",
+          "columnIds": [
+            "GH8t97WzKT14Zp7G2gauY"
+          ],
+          "x": 1134.9065,
+          "y": 1468.1073,
+          "direction": 4
+        },
+        "meta": {
+          "updateAt": 1780286404245,
+          "createAt": 1780286404245
         }
       }
     },
