@@ -18,3 +18,7 @@
 ### 기타
 
 [깃허브 트렌드 리더 디자인/기획 관련 링크](https://github.com/Trend-Leader-capstoneProject/Designs)
+
+### 작업자
+- 202284013 김한재
+- 202104231 신윤섭
