@@ -4,7 +4,7 @@
   "settings": {
     "width": 4000,
     "height": 4000,
-    "scrollTop": -1458,
+    "scrollTop": 0,
     "scrollLeft": 0,
     "zoomLevel": 1,
     "show": 511,
@@ -640,19 +640,19 @@
         "id": "zUL-g_M0UtPFqtoZDIoDE",
         "tableId": "KSafbMj_EZnXVcNaPmKNy",
         "name": "created_at",
-        "comment": "가입일",
+        "comment": "사용자 가입 시각",
         "dataType": "DATETIME",
         "default": "CURRENT_TIMESTAMP",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
-          "widthComment": 60,
+          "widthComment": 93,
           "widthDataType": 60,
           "widthDefault": 122
         },
         "meta": {
-          "updateAt": 1779964231860,
+          "updateAt": 1784879044254,
           "createAt": 1779931515615
         }
       },
@@ -660,7 +660,7 @@
         "id": "A1lkvVFdzR1IoND6JD5I9",
         "tableId": "KSafbMj_EZnXVcNaPmKNy",
         "name": "updated_at",
-        "comment": "수정일",
+        "comment": "수정 시각",
         "dataType": "DATETIME",
         "default": "",
         "options": 0,
@@ -672,7 +672,7 @@
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1780191931292,
+          "updateAt": 1784879052264,
           "createAt": 1779931604747
         }
       },
@@ -760,7 +760,7 @@
         "id": "j_mk7vqZm-NGqCVBP_p7h",
         "tableId": "TDnKKkvU6Zn3V76HnG9Xw",
         "name": "updated_at",
-        "comment": "수정일",
+        "comment": "수정 시각",
         "dataType": "DATETIME",
         "default": "",
         "options": 0,
@@ -772,7 +772,7 @@
           "widthDefault": 60
         },
         "meta": {
-          "updateAt": 1779931892079,
+          "updateAt": 1784879032887,
           "createAt": 1779931866120
         }
       },
@@ -860,19 +860,19 @@
         "id": "zghL5ARKRcXR2aFtyONJZ",
         "tableId": "LFeQjsYwH28CkVGP2JmMI",
         "name": "created_at",
-        "comment": "연동일",
+        "comment": "OAuth 계정 연동 시각",
         "dataType": "DATETIME",
         "default": "CURRENT_TIMESTAMP",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
-          "widthComment": 60,
+          "widthComment": 118,
           "widthDataType": 60,
           "widthDefault": 122
         },
         "meta": {
-          "updateAt": 1779964222245,
+          "updateAt": 1784879026569,
           "createAt": 1779932465002
         }
       },
@@ -1040,19 +1040,19 @@
         "id": "s0M4ZMsR7XkBSp1eyI9Yz",
         "tableId": "fH-Ydj_f9x6JY4Df_pTUT",
         "name": "created_at",
-        "comment": "선택일",
+        "comment": "관심 카테고리 선택 시각",
         "dataType": "DATETIME",
         "default": "CURRENT_TIMESTAMP",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
-          "widthComment": 60,
+          "widthComment": 132,
           "widthDataType": 60,
           "widthDefault": 122
         },
         "meta": {
-          "updateAt": 1779964238150,
+          "updateAt": 1784879015671,
           "createAt": 1779962615232
         }
       },
@@ -1160,19 +1160,19 @@
         "id": "_9YZYBsPehFIpMxPNDabx",
         "tableId": "9l1fI2-v9RDlL6ac8z9fN",
         "name": "first_collected_at",
-        "comment": "최초 수집일",
+        "comment": "최초 수집 시각",
         "dataType": "DATETIME",
         "default": "CURRENT_TIMESTAMP",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 90,
-          "widthComment": 65,
+          "widthComment": 81,
           "widthDataType": 60,
           "widthDefault": 122
         },
         "meta": {
-          "updateAt": 1779964212268,
+          "updateAt": 1784878988019,
           "createAt": 1779963215723
         }
       },
@@ -1863,7 +1863,7 @@
         "comment": "관련 키워드 유형",
         "dataType": "ENUM('RELATED', 'HASHTAG', 'RECOMMENDED')",
         "default": "'RELATED'",
-        "options": 9,
+        "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 75,
@@ -1883,7 +1883,7 @@
         "comment": "표시 순서",
         "dataType": "INT",
         "default": "0",
-        "options": 9,
+        "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
@@ -1960,19 +1960,19 @@
         "id": "F1LjmZe28uPf1m_FymfCt",
         "tableId": "9l1fI2-v9RDlL6ac8z9fN",
         "name": "last_collected_at",
-        "comment": "마지막 수집일",
+        "comment": "마지막 수집 시각",
         "dataType": "DATETIME",
         "default": "CURRENT_TIMESTAMP",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 88,
-          "widthComment": 77,
+          "widthComment": 93,
           "widthDataType": 60,
           "widthDefault": 122
         },
         "meta": {
-          "updateAt": 1784874562351,
+          "updateAt": 1784878976433,
           "createAt": 1784873649035
         }
       },
@@ -2160,19 +2160,19 @@
         "id": "Fcw39fvOC76HxSc7lgvj2",
         "tableId": "d8kbx4BZFNQQl92R2vY8s",
         "name": "created_at",
-        "comment": "생성 일시",
+        "comment": "관련 키워드 생성 시각",
         "dataType": "DATETIME",
         "default": "CURRENT_TIMESTAMP",
         "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 60,
-          "widthComment": 60,
+          "widthComment": 120,
           "widthDataType": 60,
           "widthDefault": 122
         },
         "meta": {
-          "updateAt": 1784875764754,
+          "updateAt": 1784878964925,
           "createAt": 1784875721226
         }
       },
@@ -2183,7 +2183,7 @@
         "comment": "중복 비교용 정규화 키워드",
         "dataType": "VARCHAR(100)",
         "default": "",
-        "options": 9,
+        "options": 8,
         "ui": {
           "keys": 0,
           "widthName": 111,
@@ -2361,7 +2361,7 @@
           "columnIds": [
             "rnYTRRVeKgtvMxTbN1oGy"
           ],
-          "x": 1482.1626,
+          "x": 1498.1626,
           "y": 624.3536,
           "direction": 2
         },

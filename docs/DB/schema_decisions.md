@@ -2,11 +2,13 @@
 
 ## 문서 상태
 
-- 상태: Working Draft
+- 상태: Frozen for Initial Migration
 - 대상 버전: ERD v2
 - DBMS: MariaDB
 - ORM: SQLAlchemy 2.x
 - Migration: Alembic
+- 동결 기준 태그: `erd-v2-freeze`
+- 동결 목적: 초기 SQLAlchemy ORM 및 Alembic Migration 생성
 
 ## 기준 산출물
 
@@ -184,10 +186,10 @@
 
 
 
+## ORM 및 Migration 반영 사항
 
-## 보류 사항
-
-- 전체 테이블 복합 UNIQUE와 조회 인덱스 물리 반영
+- 아래의 복합 UNIQUE, 조회 인덱스, 외래 키 삭제 정책은 SQLAlchemy ORM과 초기 Alembic Migration에서 물리적으로 반영한다.
+- ERD Editor에는 PK, FK, 컬럼 및 관계를 표현하고, 복합 제약과 조회 인덱스의 최종 기준은 본 문서로 관리한다.
 
 
 ## 유니크 키 반영 사항
@@ -266,8 +268,6 @@ __table_args__ = (
     ),
 )
 ```
-이전과 같이 반영하기
-
 
 ## 외래키 삭제 정책
 
@@ -321,13 +321,3 @@ Boolean
 정규화 값
 → "중복 비교용 정규화 {대상}"
 
-
-## 문서 상태
-
-- 상태: Frozen for Initial Migration
-- 대상 버전: ERD v2
-- DBMS: MariaDB
-- ORM: SQLAlchemy 2.x
-- Migration: Alembic
-- 동결 기준 커밋: <최종 커밋 SHA>
-- 동결 목적: 초기 SQLAlchemy ORM 및 Alembic Migration 생성
