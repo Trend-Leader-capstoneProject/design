@@ -69,10 +69,6 @@ def validate_vuerd(data: dict[str, Any]) -> tuple[list[str], list[str]]:
     if not isinstance(index_entities, dict):
         errors.append("collections.indexEntities가 객체가 아닙니다.")
         index_entities = {}
-        
-    if not isinstance(index_entities, dict):
-        errors.append("collections.indexEntities가 객체가 아닙니다.")
-        index_entities = {}
 
     errors.extend(
         validate_entity_names(
@@ -80,8 +76,6 @@ def validate_vuerd(data: dict[str, Any]) -> tuple[list[str], list[str]]:
             column_entities=column_entities,
         )
     )
-
-    active_table_ids = doc.get("tableIds", [])
 
     active_table_ids = doc.get("tableIds", [])
     active_relationship_ids = doc.get("relationshipIds", [])
