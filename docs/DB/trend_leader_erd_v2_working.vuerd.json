@@ -4,8 +4,8 @@
   "settings": {
     "width": 4000,
     "height": 4000,
-    "scrollTop": -32,
-    "scrollLeft": -50,
+    "scrollTop": 0,
+    "scrollLeft": 0,
     "zoomLevel": 1,
     "show": 511,
     "database": 4,
@@ -94,8 +94,7 @@
           "zUL-g_M0UtPFqtoZDIoDE",
           "A1lkvVFdzR1IoND6JD5I9",
           "VRtS9j685iEW7wihgIfyz",
-          "6oflg-WVOVWH8fMjgTYWX",
-          "2LJXNjTpG9XRwjhlrgR8B"
+          "6oflg-WVOVWH8fMjgTYWX"
         ],
         "ui": {
           "x": 42.4739,
@@ -2233,26 +2232,6 @@
         "meta": {
           "updateAt": 1784869884813,
           "createAt": 1784869846893
-        }
-      },
-      "2LJXNjTpG9XRwjhlrgR8B": {
-        "id": "2LJXNjTpG9XRwjhlrgR8B",
-        "tableId": "KSafbMj_EZnXVcNaPmKNy",
-        "name": "",
-        "comment": "",
-        "dataType": "",
-        "default": "",
-        "options": 0,
-        "ui": {
-          "keys": 0,
-          "widthName": 60,
-          "widthComment": 60,
-          "widthDataType": 60,
-          "widthDefault": 60
-        },
-        "meta": {
-          "updateAt": 1784869846982,
-          "createAt": 1784869846982
         }
       }
     },
