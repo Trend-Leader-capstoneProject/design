@@ -69,6 +69,19 @@ def validate_vuerd(data: dict[str, Any]) -> tuple[list[str], list[str]]:
     if not isinstance(index_entities, dict):
         errors.append("collections.indexEntities가 객체가 아닙니다.")
         index_entities = {}
+        
+    if not isinstance(index_entities, dict):
+        errors.append("collections.indexEntities가 객체가 아닙니다.")
+        index_entities = {}
+
+    errors.extend(
+        validate_entity_names(
+            table_entities=table_entities,
+            column_entities=column_entities,
+        )
+    )
+
+    active_table_ids = doc.get("tableIds", [])
 
     active_table_ids = doc.get("tableIds", [])
     active_relationship_ids = doc.get("relationshipIds", [])
@@ -308,6 +321,70 @@ def validate_vuerd(data: dict[str, Any]) -> tuple[list[str], list[str]]:
 
     return errors, warnings
 
+def validate_entity_names(
+    table_entities: dict[str, Any],
+    column_entities: dict[str, Any],
+) -> list[str]:
+    errors: list[str] = []
+
+    table_name_to_ids: dict[str, list[str]] = {}
+    column_names_by_table: dict[str, dict[str, list[str]]] = {}
+
+    for table_id, table in table_entities.items():
+        if not isinstance(table, dict):
+            continue
+
+        raw_table_name = str(table.get("name", ""))
+        table_name = raw_table_name.strip()
+
+        if raw_table_name != table_name:
+            errors.append(
+                f"테이블 이름 앞뒤에 공백이 있습니다: "
+                f"id={table_id}, name={raw_table_name!r}"
+            )
+
+        if table_name:
+            table_name_to_ids.setdefault(table_name, []).append(table_id)
+
+    for table_name, table_ids in table_name_to_ids.items():
+        if len(table_ids) > 1:
+            errors.append(
+                f"중복 테이블 이름이 있습니다: "
+                f"name={table_name}, ids={', '.join(table_ids)}"
+            )
+
+    for column_id, column in column_entities.items():
+        if not isinstance(column, dict):
+            continue
+
+        table_id = str(column.get("tableId", ""))
+        raw_column_name = str(column.get("name", ""))
+        column_name = raw_column_name.strip()
+
+        if raw_column_name != column_name:
+            errors.append(
+                f"컬럼 이름 앞뒤에 공백이 있습니다: "
+                f"id={column_id}, name={raw_column_name!r}"
+            )
+
+        if not column_name:
+            continue
+
+        table_columns = column_names_by_table.setdefault(table_id, {})
+        table_columns.setdefault(column_name, []).append(column_id)
+
+    for table_id, column_names in column_names_by_table.items():
+        table = table_entities.get(table_id, {})
+        table_name = str(table.get("name", table_id)).strip()
+
+        for column_name, column_ids in column_names.items():
+            if len(column_ids) > 1:
+                errors.append(
+                    f"{table_name}에 중복 컬럼 이름이 있습니다: "
+                    f"name={column_name}, ids={', '.join(column_ids)}"
+                )
+
+    return errors
 
 def main() -> int:
     parser = argparse.ArgumentParser(
