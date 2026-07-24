@@ -120,7 +120,80 @@
 * 플랫폼이 제공하는 점수의 소수 값을 보존할 수 있도록 `score`는 `DECIMAL(12, 4)`로 저장한다.
 * 동일 시점의 중복 스냅샷을 방지하기 위해 `(trend_id, platform, snapshot_at)` 복합 UNIQUE 제약을 사용한다.
 
+### SD-014 AI 분석 결과 버전 관리
+
+* 하나의 트렌드는 여러 개의 AI 분석 결과를 가질 수 있다.
+* AI 분석 결과는 생성 이후 수정하지 않는 불변 데이터로 관리한다.
+* 분석 내용이 변경되거나 재분석이 필요한 경우 기존 행을 수정하지 않고 새로운 분석 버전을 생성한다.
+* 분석 버전은 `analysis_version`에 저장한다.
+* 동일 트렌드에서 분석 버전이 중복되지 않도록 `(trend_id, analysis_version)` 복합 UNIQUE 제약을 사용한다.
+* 초기 MVP에서는 성공한 AI 분석 결과만 `trend_ai_analyses`에 저장한다.
+* 분석 작업의 대기, 실행, 실패 상태 관리는 비동기 분석 기능 도입 시 별도의 작업 테이블로 분리한다.
+
+### SD-015 현재 AI 분석 선택 방식
+
+* 트렌드 상세 조회에서는 해당 트렌드의 `analysis_version`이 가장 큰 분석 결과를 현재 분석으로 사용한다.
+* 현재 분석을 별도로 표시하는 `is_current` 컬럼은 사용하지 않는다.
+* 분석 결과가 존재하지 않으면 트렌드 상세 API의 `ai_analysis`는 NULL을 반환한다.
+* AI 분석이 없는 경우 `trends.summary`를 기본 설명으로 사용할 수 있다.
+
+### SD-016 AI 모델 및 프롬프트 정보
+
+* AI 제공자는 `model_provider`에 `VARCHAR(30)`으로 저장한다.
+* 사용한 실제 모델 설정명은 `model_name`에 `VARCHAR(100)`으로 저장한다.
+* 모델 추가 또는 변경이 DB 스키마 변경으로 이어지지 않도록 모델 정보에는 MariaDB ENUM을 사용하지 않는다.
+* AI 분석에 사용한 프롬프트 버전은 `prompt_version`에 저장한다.
+* `trends.summary`는 기본 또는 수집 기반 요약이며, `trend_ai_analyses.one_line_summary`는 AI가 생성한 상세 화면용 요약으로 구분한다.
+
+### SD-017 관련 키워드와 분석 버전 연결
+
+* 관련 키워드는 트렌드에 직접 연결하지 않고 해당 키워드를 생성한 AI 분석에 연결한다.
+* `trend_related_keywords.trend_id`는 제거하고 `analysis_id`를 외래 키로 사용한다.
+* 하나의 AI 분석은 여러 관련 키워드를 가질 수 있다.
+* 키워드 원문은 `keyword`, 중복 비교용 정규화 값은 `normalized_keyword`에 저장한다.
+* 동일 분석에 같은 키워드가 중복 저장되지 않도록 `(analysis_id, normalized_keyword)` 복합 UNIQUE 제약을 사용한다.
+* 키워드 유형은 `RELATED`, `HASHTAG`, `RECOMMENDED`로 구분한다.
+* 트렌드 상세 조회에서는 현재 AI 분석에 연결된 관련 키워드만 반환한다.
+
 
 ## 보류 사항
 
-- AI 분석 버전 관리 방식
+- 사용자 북마크 중복 및 삭제 정책
+- 검색 기록 보존 및 삭제 정책
+- 전체 테이블 복합 UNIQUE와 조회 인덱스 물리 반영
+
+
+## 유니크 키 반영 사항
+
+(trend_id, category_id)
+(trend_id, source_key)
+(trend_id, platform, snapshot_at)
+
+UNIQUE(trend_id, analysis_version)
+INDEX(trend_id, analysis_version)
+
+UNIQUE(analysis_id, normalized_keyword)
+INDEX(analysis_id, keyword_type, sort_order)
+
+```
+__table_args__ = (
+    UniqueConstraint(
+        "trend_id",
+        "source_key",
+        name="uq_trend_sources_trend_source_key",
+    ),
+)
+```
+이전과 같이 반영하기
+
+## 트렌드 요약 VS AI 요약
+
+trends.summary
+- 수집 데이터 또는 기본 설명
+- 목록 카드와 AI 분석 전 fallback에 사용
+- NULL 허용
+
+trend_ai_analyses.one_line_summary
+- AI가 생성한 최신 분석 요약
+- 트렌드 상세 화면에 사용
+- 분석 행에서는 NOT NULL
